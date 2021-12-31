@@ -1,0 +1,5 @@
+The Last Of Us
+
+O que acontece quando digitamos www.google.com e apertamos 'enter'?
+
+O cliente envia uma requisição através de um protocolo (HTTP ou HTTPS) para o servidor, sendo que esta requisição é traduzida pelo DNS (Domain Name System). O DNS faz a relação entre o endereço nominal com o IP, fazendo assim a conexão entre cliente e servidor. Ele retorna uma cópia do site requisitado que será renderizada pelo cliente e exibido na tela.

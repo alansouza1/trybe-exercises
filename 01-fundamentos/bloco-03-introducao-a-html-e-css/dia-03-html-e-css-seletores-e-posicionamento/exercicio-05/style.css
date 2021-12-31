@@ -1,0 +1,60 @@
+ol li {
+  background-color: #ff0;
+}
+
+ol li:nth-child(even) {
+  color: #0f0;
+}
+
+ol li:nth-child(odd) {
+  text-transform: uppercase;
+}
+
+h1, h3 {
+  color: #f00;
+}
+
+h1 em {
+  font-size: 40px;
+  border: 1px solid black;
+}
+
+li {
+  font-size: 20px;
+}
+
+li em {
+  font-weight: bold;
+}
+
+.top-tres {
+  color: #00f;
+}
+
+.java {
+  background-color: pink;
+}
+
+.aliados:hover {
+  font-weight: bold;
+}
+
+#so:hover {
+  color: orange;
+}
+
+#w3s:hover {
+  color: darkgreen;
+}
+
+#mdn:hover {
+  color: #000;
+}
+
+#dd:hover {
+  color: #ff0;
+}
+
+#trybe:hover {
+  color: #0f0;
+}
