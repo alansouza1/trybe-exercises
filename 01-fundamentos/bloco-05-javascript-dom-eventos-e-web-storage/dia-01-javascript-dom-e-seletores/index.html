@@ -56,6 +56,8 @@
       */
 
       const paragrafo = document.getElementById('paragraph');
+      const paragrafos = document.getElementsByTagName('p');
+
       function mudarTextoParagrafo(texto) {
         paragrafo.innerText = texto;
       }
@@ -84,6 +86,13 @@
         tag.innerText = texto.toUpperCase();
       }
       modificaTextoParaMaiusculo(paragrafo);
+
+      function exibeConteundoDaTagNoConsole(tags) {
+        for (let index = 0; index < tags.length; index += 1) {
+          console.log(tags[index].innerText);
+        }
+      }
+      exibeConteundoDaTagNoConsole(paragrafos);
 
     </script>
   </body>
