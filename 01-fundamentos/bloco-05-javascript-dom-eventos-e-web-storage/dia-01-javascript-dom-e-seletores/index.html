@@ -36,7 +36,7 @@
     </header>    
     <main class="main-content">
       <section class="center-content">
-        <p>Texto padrão do nosso site</p>
+        <p id="paragraph">Texto padrão do nosso site</p>
         <p>-----</p>
         <p>Trybe</p>
       </section>
@@ -55,8 +55,18 @@
       Crie uma função que exiba o conteúdo de todas as tags <p> no console.
       */
 
-      let paragrafo = document.getElementsByTagName('p');
-      paragrafo[0].innerText = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.';
+      function mudarTextoParagrafo(texto) {
+        const paragrafo = document.getElementById('paragraph');
+        paragrafo.innerText = texto;
+      }
+      mudarTextoParagrafo('Lorem ipsum dolor sit amet, consectetur adipiscing elit.');
+
+      function mudaCorDoQuadradoAmarelo(cor) {
+        const conteudoPrincipal = document.getElementsByClassName('main-content');
+        conteudoPrincipal[0].style.backgroundColor = cor;
+      }
+      mudaCorDoQuadradoAmarelo('rgb(76,164,109)');
+
     </script>
   </body>
 </html>
