@@ -73,7 +73,11 @@
       }
       mudaCorDoQuadradoVermelho('white');
 
-      
+      function corrigeTextoDaTagH1(correcao) {
+        const title = document.getElementsByClassName('title');
+        title[0].innerText = correcao;
+      }
+      corrigeTextoDaTagH1('Exercício 5.1 - JavaScript');
 
     </script>
   </body>
