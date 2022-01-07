@@ -1,3 +1,5 @@
+let selected = false;
+
 function createDaysOfTheWeek() {
   const weekDays = ['Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado']
   const weekDaysList = document.querySelector('.week-days');
@@ -49,3 +51,24 @@ function createButton(name) {
 
 createButton('Feriados');
 
+function addEventButton() {
+  const button = document.querySelector('#btn-holiday');
+  button.addEventListener('click', changeBackgroundColor);
+}
+
+function changeBackgroundColor() {
+  const holidays = document.querySelectorAll('.holiday');
+
+  for (let index = 0; index < holidays.length; index += 1) {
+    const holiday = holidays[index];
+
+    if (selected) {
+      holiday.style.backgroundColor = '#eee';
+    } else {
+      holiday.style.backgroundColor = '#0f0';
+    }
+  }
+  selected = !selected;
+}
+
+addEventButton();
