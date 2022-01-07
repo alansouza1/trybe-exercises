@@ -57,7 +57,7 @@
   </head>
   <body>
     <script>
-      let body = document.querySelector('body');
+      const body = document.querySelector('body');
 
       let title = document.createElement('h1');
       title.innerText = 'Exercício 5.2 - JavaScript DOM';
@@ -86,6 +86,21 @@
       let smallImage = document.createElement('img');
       smallImage.src = 'https://picsum.photos/200';
       leftContent.appendChild(smallImage);
+
+      const numbers = ['um', 'dois', 'três', 'quatro', 'cinco', 'seis', 'sete', 'oito', 'nove', 'dez'];
+      let list = document.createElement('ul');
+      rightContent.appendChild(list);
+      for (let index = 0; index < numbers.length; index += 1) {
+        let number = numbers[index];
+
+        let numberListItem = document.createElement('li');
+        numberListItem.innerText = number;
+
+        list.appendChild(numberListItem);
+      }
+
+
+
 
 
 
