@@ -115,8 +115,11 @@
 
       centerContent.parentNode.style.backgroundColor = 'green';
 
-
-
+      for (let index = 0; index < 2; index += 1) {
+        let unorderedList = document.querySelectorAll('ul li');
+        let removeItem = unorderedList[unorderedList.length - 1]
+        list.removeChild(removeItem);
+      }
 
     </script>
   </body>
