@@ -1,4 +1,6 @@
-let selected = false;
+let selectedHoliday = false;
+let selectedFriday = false;
+const fridayDays = [4, 11, 18, 25];
 
 function createDaysOfTheWeek() {
   const weekDays = ['Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado']
@@ -39,7 +41,7 @@ function createDaysOfTheMonth() {
 
 createDaysOfTheMonth();
 
-function createButton(name) {
+function createButtonHoliday(name) {
   const buttonsContainer = document.querySelector('.buttons-container');
 
   const button = document.createElement('button');
@@ -49,9 +51,9 @@ function createButton(name) {
   buttonsContainer.appendChild(button);
 }
 
-createButton('Feriados');
+createButtonHoliday('Feriados');
 
-function addEventButton() {
+function addEventButtonHoliday() {
   const button = document.querySelector('#btn-holiday');
   button.addEventListener('click', changeBackgroundColor);
 }
@@ -62,13 +64,47 @@ function changeBackgroundColor() {
   for (let index = 0; index < holidays.length; index += 1) {
     const holiday = holidays[index];
 
-    if (selected) {
+    if (selectedHoliday) {
       holiday.style.backgroundColor = '#eee';
     } else {
       holiday.style.backgroundColor = '#0f0';
     }
   }
-  selected = !selected;
+  selectedHoliday = !selectedHoliday;
 }
 
-addEventButton();
+addEventButtonHoliday();
+
+function createButtonFriday(name) {
+  const buttonsContainer = document.querySelector('.buttons-container');
+
+  const button = document.createElement('button');
+  button.id = 'btn-friday';
+  button.innerText = name;
+
+  buttonsContainer.appendChild(button);
+}
+
+createButtonFriday('Sexta-feira');
+
+function addEventButtonFriday() {
+  const button = document.querySelector('#btn-friday');
+  button.addEventListener('click', changeText);
+}
+
+function changeText() {
+  const fridays = document.querySelectorAll('.friday');
+
+  for (let index = 0; index < fridays.length; index += 1) {
+    const friday = fridays[index];
+
+    if (selectedFriday) {
+      friday.innerText = fridayDays[index];
+    } else {
+      friday.innerText = 'Sexta';
+    }
+  }
+  selectedFriday = !selectedFriday;
+}
+
+addEventButtonFriday();
