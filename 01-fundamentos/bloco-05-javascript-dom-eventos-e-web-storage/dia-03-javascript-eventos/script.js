@@ -108,3 +108,26 @@ function changeText() {
 }
 
 addEventButtonFriday();
+
+function addEventDays() {
+  const days = document.querySelectorAll('.day');
+
+  for (let index = 0; index < days.length; index += 1) {
+    const day = days[index];
+
+    day.addEventListener('mouseover', zoomIn);
+    day.addEventListener('mouseout', zoomOut)
+  }
+}
+
+addEventDays();
+
+function zoomIn(event) {
+  const day = event.target;
+  day.style.fontSize = '25px';
+}
+
+function zoomOut(event) {
+  const day = event.target;
+  day.style.fontSize = '20px';
+}
