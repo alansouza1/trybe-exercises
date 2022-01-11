@@ -143,4 +143,16 @@ function createTask(task) {
   myTasks.appendChild(taskElement);
 }
 
-createTask('Projeto');
+createTask('Projeto:');
+
+function addLegendColorToTask(color) {
+  const myTasks = document.querySelector('.my-tasks');
+
+  const legend = document.createElement('div');
+  legend.className = 'task';
+  legend.style.backgroundColor = color;
+
+  myTasks.appendChild(legend);
+}
+
+addLegendColorToTask('green');
