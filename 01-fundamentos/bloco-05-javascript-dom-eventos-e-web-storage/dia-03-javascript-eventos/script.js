@@ -156,3 +156,14 @@ function addLegendColorToTask(color) {
 }
 
 addLegendColorToTask('green');
+
+function addEventToLegend() {
+  const legend = document.querySelector('.my-tasks .task');
+  legend.addEventListener('click', changeClass);
+}
+
+addEventToLegend();
+
+function changeClass() {
+  
+}
