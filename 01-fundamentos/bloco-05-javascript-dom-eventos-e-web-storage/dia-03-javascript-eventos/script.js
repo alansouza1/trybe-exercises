@@ -67,7 +67,7 @@ function changeBackgroundColor() {
     if (selectedHoliday) {
       holiday.style.backgroundColor = '#eee';
     } else {
-      holiday.style.backgroundColor = '#0f0';
+      holiday.style.backgroundColor = '#fff';
     }
   }
   selectedHoliday = !selectedHoliday;
@@ -101,7 +101,7 @@ function changeText() {
     if (selectedFriday) {
       friday.innerText = fridayDays[index];
     } else {
-      friday.innerText = 'Sexta';
+      friday.innerText = 'SEXTOU o/';
     }
   }
   selectedFriday = !selectedFriday;
@@ -125,9 +125,22 @@ addEventDays();
 function zoomIn(event) {
   const day = event.target;
   day.style.fontSize = '25px';
+  day.style.fontWeight = 'bold';
 }
 
 function zoomOut(event) {
   const day = event.target;
   day.style.fontSize = '20px';
+  day.style.fontWeight = 'normal';
 }
+
+function createTask(task) {
+  const myTasks = document.querySelector('.my-tasks');
+
+  const taskElement = document.createElement('span');
+  taskElement.innerText = task;
+
+  myTasks.appendChild(taskElement);
+}
+
+createTask('Projeto');
