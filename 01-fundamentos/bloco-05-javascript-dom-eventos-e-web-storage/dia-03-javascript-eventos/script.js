@@ -1,5 +1,7 @@
 let selectedHoliday = false;
 let selectedFriday = false;
+let selectedTask = false;
+let selectedColor = false;
 const fridayDays = [4, 11, 18, 25];
 
 function createDaysOfTheWeek() {
@@ -34,6 +36,7 @@ function createDaysOfTheMonth() {
       dayListItem.className = 'day';
     }
     dayListItem.innerHTML = days;
+    dayListItem.style.cursor = 'default';
 
     monthDaysList.appendChild(dayListItem);
   }
@@ -165,5 +168,42 @@ function addEventToLegend() {
 addEventToLegend();
 
 function changeClass() {
+  const legend = document.querySelector('.my-tasks .task');
+
+  if (!selectedTask) {
+    legend.className = 'task selected';
+    selectedTask = true;
+  } else {
+    legend.className = 'task';
+    selectedTask = false;
+  }
+}
+
+function addEventToDays() {
+  const daysList = document.querySelectorAll('#days .day');
+
+  for (let index = 0; index < daysList.length; index += 1) {
+    const day = daysList[index];
+    day.addEventListener('click', changeColorDay);
+  }
+
+}
+
+addEventToDays();
+
+function changeColorDay(event) {
+  const legend = document.querySelector('.my-tasks .task');
+
+  if (legend.className === 'task selected') {
+    const day = event.target;
+    const color = legend.style.backgroundColor;
   
+    if (selectedColor === false) {
+      day.style.color = color;
+      selectedColor = true;
+    } else {
+      day.style.color = '#777';
+      selectedColor = false;
+    }
+  }  
 }
