@@ -1,7 +1,6 @@
 let selectedHoliday = false;
 let selectedFriday = false;
 let selectedTask = false;
-let selectedColor = false;
 const fridayDays = [4, 11, 18, 25];
 
 function createDaysOfTheWeek() {
@@ -197,13 +196,43 @@ function changeColorDay(event) {
   if (legend.className === 'task selected') {
     const day = event.target;
     const color = legend.style.backgroundColor;
+    const currentColor = day.style.color;
   
-    if (selectedColor === false) {
-      day.style.color = color;
-      selectedColor = true;
-    } else {
+    if (currentColor === color) {
       day.style.color = '#777';
-      selectedColor = false;
+    } else {
+      day.style.color = color;
     }
   }  
+}
+
+const btnAdd = document.querySelector('#btn-add');
+btnAdd.addEventListener('click', addTask);
+
+const taskInput = document.querySelector('#task-input');
+taskInput.addEventListener('keydown', verifyEnterKey);
+
+function addTask() {
+  const taskInput = document.querySelector('#task-input');
+  const taskInputValue = taskInput.value;
+  const taskList = document.querySelector('.tasks-container .task-list');
+
+  if (taskInputValue === '') {
+    alert('Digite uma tarefa!');
+  } else {
+    const task = document.createElement('li');
+    task.innerText = taskInputValue;
+
+    taskList.appendChild(task);
+
+    taskInput.value = '';
+  }  
+}
+
+function verifyEnterKey(event) {
+  const pressedKey = event.key;
+
+  if (pressedKey === 'Enter') {
+    addTask();
+  }
 }
