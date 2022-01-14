@@ -1,5 +1,6 @@
 let selectedHoliday = false;
 let selectedFriday = false;
+let selectedTask = false;
 const fridayDays = [4, 11, 18, 25];
 
 function createDaysOfTheWeek() {
@@ -34,6 +35,7 @@ function createDaysOfTheMonth() {
       dayListItem.className = 'day';
     }
     dayListItem.innerHTML = days;
+    dayListItem.style.cursor = 'default';
 
     monthDaysList.appendChild(dayListItem);
   }
@@ -165,5 +167,72 @@ function addEventToLegend() {
 addEventToLegend();
 
 function changeClass() {
+  const legend = document.querySelector('.my-tasks .task');
+
+  if (!selectedTask) {
+    legend.className = 'task selected';
+    selectedTask = true;
+  } else {
+    legend.className = 'task';
+    selectedTask = false;
+  }
+}
+
+function addEventToDays() {
+  const daysList = document.querySelectorAll('#days .day');
+
+  for (let index = 0; index < daysList.length; index += 1) {
+    const day = daysList[index];
+    day.addEventListener('click', changeColorDay);
+  }
+
+}
+
+addEventToDays();
+
+function changeColorDay(event) {
+  const legend = document.querySelector('.my-tasks .task');
+
+  if (legend.className === 'task selected') {
+    const day = event.target;
+    const color = legend.style.backgroundColor;
+    const currentColor = day.style.color;
   
+    if (currentColor === color) {
+      day.style.color = '#777';
+    } else {
+      day.style.color = color;
+    }
+  }  
+}
+
+const btnAdd = document.querySelector('#btn-add');
+btnAdd.addEventListener('click', addTask);
+
+const taskInput = document.querySelector('#task-input');
+taskInput.addEventListener('keydown', verifyEnterKey);
+
+function addTask() {
+  const taskInput = document.querySelector('#task-input');
+  const taskInputValue = taskInput.value;
+  const taskList = document.querySelector('.tasks-container .task-list');
+
+  if (taskInputValue === '') {
+    alert('Digite uma tarefa!');
+  } else {
+    const task = document.createElement('li');
+    task.innerText = taskInputValue;
+
+    taskList.appendChild(task);
+
+    taskInput.value = '';
+  }  
+}
+
+function verifyEnterKey(event) {
+  const pressedKey = event.key;
+
+  if (pressedKey === 'Enter') {
+    addTask();
+  }
 }
