@@ -5,6 +5,7 @@ const main = document.querySelector('main');
 const backgroundColorButtons = document.querySelectorAll('.change-background-color button');
 const textColorButtons = document.querySelectorAll('.change-text-color button');
 const fontSizeButtons = document.querySelectorAll('.change-font-size button');
+const lineHeightButtons = document.querySelectorAll('.change-line-height button');
 
 function addColorToButtons(buttons) {
   for (let index = 0; index < buttons.length; index += 1) {
@@ -26,6 +27,7 @@ function addEventToButtons(buttons, func) {
 addEventToButtons(backgroundColorButtons, changeBackgroundColor);
 addEventToButtons(textColorButtons, changeTextColor);
 addEventToButtons(fontSizeButtons, changeFontSize);
+addEventToButtons(lineHeightButtons, changeLineHeight);
 
 function changeBackgroundColor(event) {
   const button = event.target;
@@ -46,4 +48,11 @@ function changeFontSize(event) {
   const fontSize = button.innerText;
 
   main.style.fontSize = fontSize;
+}
+
+function changeLineHeight(event) {
+  const button = event.target;
+  const lineHeight = button.innerText;
+
+  main.style.lineHeight = lineHeight;
 }
