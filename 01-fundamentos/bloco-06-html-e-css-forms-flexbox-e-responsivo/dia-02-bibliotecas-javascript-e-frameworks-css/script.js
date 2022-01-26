@@ -1,3 +1,5 @@
+var picker = new Pikaday({ field: document.getElementById('datepicker') });
+
 const submitButton = document.querySelector('#btn-submit');
 const inputName = document.querySelector('#user-name');
 const inputEmail = document.querySelector('#user-email');
