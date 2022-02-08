@@ -63,3 +63,7 @@ figcaption {
     width: 45%;
   }
 }
+
+@media screen and (min-width: 1300px) {
+  
+}
