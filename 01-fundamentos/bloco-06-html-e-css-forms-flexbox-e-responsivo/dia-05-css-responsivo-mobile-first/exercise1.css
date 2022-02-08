@@ -46,3 +46,7 @@ figure {
 figcaption {
   font-size: .8em;
 }
+
+@media screen and (min-width: 800px) {
+  
+}
