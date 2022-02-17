@@ -64,5 +64,22 @@ const studentsMath = (obj) => {
   };
   return totalStudents;
 };
-
 console.log(studentsMath(allLessons));
+
+const createReport = (obj, teacher) => {
+  const keys = Object.keys(obj);
+  let subjects = [];
+  let students = 0;
+  for (key of keys) {
+    if (obj[key].professor === teacher) {
+      subjects.push(obj[key].materia);
+      students += obj[key].numeroEstudantes;
+    };
+  };
+  return {
+    professor: teacher,
+    aulas: subjects,
+    estudates: students
+  };
+};
+console.log(createReport(allLessons, 'Maria Clara'));
