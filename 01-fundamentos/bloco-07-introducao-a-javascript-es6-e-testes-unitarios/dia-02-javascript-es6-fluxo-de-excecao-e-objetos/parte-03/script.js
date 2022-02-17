@@ -49,3 +49,7 @@ const getValueByNumber = (obj, index) => {
   return objArray[index];
 };
 console.log(getValueByNumber(lesson1, 0));
+
+const verifyPair = (obj, key, value) => obj[key] === value ? true : false;
+console.log(verifyPair(lesson3, 'turno', 'noite'));
+console.log(verifyPair(lesson3, 'materia', 'Maria Clara'));
