@@ -43,3 +43,9 @@ const sumStudents = obj => {
   return total;
 };
 console.log(sumStudents(allLessons));
+
+const getValueByNumber = (obj, index) => {
+  const objArray = Object.values(obj);
+  return objArray[index];
+};
+console.log(getValueByNumber(lesson1, 0));
