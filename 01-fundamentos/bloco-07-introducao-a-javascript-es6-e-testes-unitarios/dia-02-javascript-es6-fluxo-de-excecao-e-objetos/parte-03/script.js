@@ -30,3 +30,6 @@ objLength(lesson3);
 
 const objValues = obj => console.log(Object.values(obj));
 objValues(lesson1);
+
+const allLessons = {lesson1, lesson2, lesson3};
+console.log(allLessons);
