@@ -20,3 +20,7 @@ const lesson3 = {
 
 const addShift = (obj, key, value) => obj[key] = value;
 addShift(lesson2, 'turno', 'noite');
+console.log(lesson2);
+
+const listKeys = obj => console.log(Object.keys(obj));
+listKeys(lesson1);
