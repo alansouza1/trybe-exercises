@@ -33,3 +33,13 @@ objValues(lesson1);
 
 const allLessons = {lesson1, lesson2, lesson3};
 console.log(allLessons);
+
+const sumStudents = obj => {
+  let total = 0;
+  const studentsArray = Object.keys(obj);
+  for (value of studentsArray) {
+    total += obj[value].numeroEstudantes;
+  };
+  return total;
+};
+console.log(sumStudents(allLessons));
