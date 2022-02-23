@@ -26,6 +26,6 @@ const jupiter = {
 };
 
 console.log(planetDistanceFromSun(mars)); // A
-console.log(planetDistanceFromSun(venus)); // B
-console.log(planetDistanceFromSun(jupiter)); // C
-// A ordem será A(mars), B(Venus) e por último C(jupiter)
+setTimeout(() => console.log(planetDistanceFromSun(venus)), 3000); // B
+setTimeout(() => console.log(planetDistanceFromSun(jupiter)), 2000); // C
+// A ordem de finalização de execução das linhas comentadas é: A(mars), C(jupiter) e por último B(venus).
