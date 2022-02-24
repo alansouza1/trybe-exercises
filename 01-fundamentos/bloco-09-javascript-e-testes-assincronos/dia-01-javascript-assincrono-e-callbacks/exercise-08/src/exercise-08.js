@@ -31,10 +31,10 @@ function getPokemonDetails(filter, callback) {
   }, 2000);
 }
 
-const filter = (pokemon) => pokemon.name === 'Squirftle';
-const call = (error, result) => error ? console.log(error) : console.log(result);
+// const filter = (pokemon) => pokemon.name === 'Squirtle';
+// const call = (error, result) => error ? console.log(error) : console.log(result);
 
-getPokemonDetails(filter, call);
+// getPokemonDetails(filter, call);
 
 module.exports = {
   getPokemonDetails,
