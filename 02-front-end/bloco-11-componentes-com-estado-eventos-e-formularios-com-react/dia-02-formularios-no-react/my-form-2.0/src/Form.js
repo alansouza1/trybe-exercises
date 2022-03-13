@@ -8,6 +8,7 @@ class Form extends React.Component {
     this.handleChange = this.handleChange.bind(this);
     this.handleError = this.handleError.bind(this);
     this.handleBlur = this.handleBlur.bind(this);
+    this.handleMouseEnter = this.handleMouseEnter.bind(this);
 
     this.state = {
       name: '',
@@ -18,6 +19,19 @@ class Form extends React.Component {
       state: '',
       type: '',
       formWithErrors: false,
+      resume: '',
+      post: '',
+      description: '',
+      hasAlerted: false,
+    }
+  }
+
+  handleMouseEnter() {
+    const { hasAlerted } = this.state;
+
+    if (!hasAlerted) {
+      alert('Preencha com cuidado esta informação.');
+      this.setState({ hasAlerted: true })
     }
   }
 
@@ -33,7 +47,7 @@ class Form extends React.Component {
   }
 
   handleError() {
-    const { name, email, cpf, address, city, state, type } = this.state;
+    const { name, email, cpf, address, city, state, type, resume, post, description } = this.state;
 
     const errorCases = [
       (!name.length || name.length > 40),
@@ -43,6 +57,9 @@ class Form extends React.Component {
       (!city.length || city.length > 28),
       (!state.length),
       (!type.length),
+      (!resume.length || resume.length > 1000),
+      (!post.length || post.length > 40),
+      (!description.length || description.length > 500),
     ];
 
     const isFormFull = errorCases.every((error) => error !== true);
@@ -72,7 +89,7 @@ class Form extends React.Component {
   }
 
   render() {
-    const { name, email, cpf, address, city, state } = this.state;
+    const { name, email, cpf, address, city, state, resume, post, description } = this.state;
 
     return (
       <form>
@@ -141,6 +158,21 @@ class Form extends React.Component {
               Apartamento
             </label>
           </fieldset>
+        </fieldset>
+        <fieldset className='form'>
+          <legend>Último Emprego</legend>
+          <label htmlFor='resume'>
+            Resumo do currículo:
+            <textarea name='resume' id='resume' value={resume} onChange={this.handleChange} />
+          </label>
+          <label htmlFor='post'>
+            Cargo:
+            <textarea name='post' id='post' value={post} onChange={this.handleChange} onMouseEnter={this.handleMouseEnter} />
+          </label>
+          <label htmlFor='description'>
+            Descrição do cargo:
+            <input type='text' name='description' id='description' value={description} onChange={this.handleChange} />
+          </label>
         </fieldset>
       </form>
     );
