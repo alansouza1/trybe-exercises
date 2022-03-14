@@ -95,9 +95,11 @@ class Form extends React.Component {
   handleError() {
     const { name, email, cpf, address, city, state, type, resume, post, description } = this.state;
 
+    const regex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/igm;
+
     const errorCases = [
       (!name.length || name.length > 40),
-      (!email.length || email.length > 50),
+      (!email.match(regex) || email.length > 50),
       (!cpf.length || cpf.length > 11),
       (!address.length || address.length > 200),
       (!city.length || city.length > 28),
